@@ -1,0 +1,28 @@
+<div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Success!</strong> Successfully added
+  <button (click)="closealert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div> 
+<div class="forms col-md-6">   
+    <form [formGroup]="updateDetail" (ngSubmit)="editCollection()">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Date</label>
+              <input formControlName="date" type="date" class="form-control" placeholder="Enter Date">
+              <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Weight</label>
+                <input formControlName="weight" type="number" class="form-control" placeholder="Enter weight">
+                <span class="red-error" *ngIf="weight.invalid && weight.touched">Weight required</span>
+                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Body Fat</label>
+                <input formControlName="bodyfat" type="number" class="form-control" placeholder="Enter weight">
+                <span class="red-error" *ngIf="bodyfat.invalid && bodyfat.touched">Body Fat required</span>
+                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+              </div>
+        <button type="submit"  class="btn btn-primary">Update</button>
+    </form>
+</div>

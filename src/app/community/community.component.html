@@ -1,0 +1,9 @@
+<form [formGroup]="addComment" (ngSubmit)="commentData()">
+  <div class="form-group">
+    <label for="exampleInputEmail1"><h2>Comment our Service</h2></label>
+    <input formControlName="comment" type="text" class="form-control" placeholder="Press enter to post " />
+  </div>
+</form>
+<h2>All Comments</h2>
+
+<p *ngFor="let i of collection">{{i.comment}}</p>

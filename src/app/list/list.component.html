@@ -1,0 +1,30 @@
+<div *ngIf="alert" class="alert alert-danger alert-dismissible fade show" role="alert" >
+  <strong>Success!</strong> Successfully Deleted
+  <button (click)="closealert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+          
+        <th scope="col">Id</th>
+        <th scope="col">Date</th>
+        <th scope="col">Weight</th>
+        <th></th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of collection">
+        <th scope="row">{{i.id}}</th>
+        <td>{{i.date | date}}</td>
+        <td>{{i.weight}} lbs</td>
+        <td><i (click)="deletelistData(i.id)" class="fa fa-trash" style="color: red;font-size: 25px;" aria-hidden="true"></i>&nbsp; &nbsp; &nbsp;
+        <a routerLink="/update/{{i.id}}" ><i class="fa fa-edit" style="color: blue;font-size: 25px;" aria-hidden="true"></i></a>&nbsp; &nbsp; &nbsp;
+        <a routerLink="/detail/{{i.id}}" ><i class="fa fa-info-circle" style="color: black;font-size: 25px;" aria-hidden="true"></i></a></td>
+        <!-- <a routerLink="/detail/{{i.id}}" ><i class="fa fa-info" style="color: green;font-size: 25px;" aria-hidden="true"></i></a></td> -->
+      </tr>
+    </tbody>
+  </table>
+
